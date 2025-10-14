@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="prev" title="Scrollbar position" href="scrollbar-position.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Overlay scrollbars - Desktop integration on X11 and Wayland</title>
+        <title>Scrollbar steppers - Desktop integration on X11 and Wayland</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -202,11 +202,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Widget behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Scrollbars</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Widget behavior</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Scrollbars</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="scrollbar-position.html">Scrollbar position</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Overlay scrollbars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overlay-scrollbar.html">Overlay scrollbars</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +231,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/widget-behavior/scrollbar/overlay-scrollbar.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/widget-behavior/scrollbar/scrollbar-stepper.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -251,15 +251,40 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="overlay-scrollbars">
-<h1>Overlay scrollbars<a class="headerlink" href="#overlay-scrollbars" title="Link to this heading">¶</a></h1>
-<p><strong>Overlay scrollbars</strong> are scrollbars which are hidden when not in use. When the user moves the mouse pointer, a very narrow scrollbar knob is shown, and if the user moves the pointer to the location of the scrollbar, the knob will widen and the user will be able to use it.</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="scrollbar-steppers">
+<h1>Scrollbar steppers<a class="headerlink" href="#scrollbar-steppers" title="Link to this heading">¶</a></h1>
+<p>Traditionally, arrow buttons (“steppers”) were placed on the scrollbar, allowing the user to</p>
+<p>On Windows, the two steppers are placed on opposite ends of the scrollbar, while on NeXTstep and Mac OS X (prior to its introduction of overlay scrollbars) the two steppers were placed on the bottom/right of the scrollbar. On Unix systems, the position was historically configurable by the user.</p>
 <section id="get-the-user-s-preference">
 <h2>Get the user’s preference<a class="headerlink" href="#get-the-user-s-preference" title="Link to this heading">¶</a></h2>
-<p>Toolkits and applications should read <code class="docutils literal notranslate"><span class="pre">/org/gnome/desktop/overlay-scrolling</span></code> from dconf.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gsettings<span class="w"> </span>get<span class="w"> </span>org.gnome.desktop.interface<span class="w"> </span>overlay-scrolling
-</pre></div>
-</div>
+<p>This is difficult; ideally, something would eventually be exposed over dconf.</p>
+<ul class="simple">
+<li><p>If the user is on a Qt desktop:</p>
+<ul>
+<li><p>If the theme is Breeze:</p>
+<ul>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">~/.config/breezerc</span></code></p></li>
+</ul>
+</li>
+<li><p>If the theme is Oxygen:</p>
+<ul>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">~/.config/oxygenrc</span></code></p></li>
+</ul>
+</li>
+<li><p>If the theme is Kvantum:</p>
+<ul>
+<li><p>Check the user’s <code class="docutils literal notranslate"><span class="pre">kvconfig</span></code> (this will require parsing multiple files)</p></li>
+</ul>
+</li>
+<li><p>Otherwise, assume one stepper at the top and bottom</p></li>
+</ul>
+</li>
+<li><p>If the user is on a Gtk desktop:</p>
+<ul>
+<li><p>Assume no steppers</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="supported-toolkits">
 <h2>Supported toolkits<a class="headerlink" href="#supported-toolkits" title="Link to this heading">¶</a></h2>
@@ -274,75 +299,98 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Gtk2</p></td>
-<td><p>No</p></td>
+<td><p>Yes</p></td>
 <td><p>Off</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>Gtk3</p></td>
 <td><p>Yes</p></td>
-<td><p>On</p></td>
+<td><p>Off</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>Gtk4</p></td>
-<td><p>Yes</p></td>
+<td><p>No</p></td>
 <td><p>On</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>Qt Widgets</p></td>
-<td><p>No</p></td>
-<td><p>Off</p></td>
+<td><p>Depends on style</p></td>
+<td><p>Depends on style</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>Qt Quick Controls</p></td>
-<td><p>Yes</p></td>
-<td><p>Off</p></td>
-<td><p>Not user-configurable</p></td>
+<td><p>Depends on style</p></td>
+<td><p>Depends on style</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>Mozilla</p></td>
-<td><p>Yes</p></td>
+<tr class="row-odd"><td><p>Chromium</p></td>
+<td><p>Required</p></td>
 <td><p>On</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>Chromium</p></td>
-<td><p>Yes</p></td>
-<td><p>Off</p></td>
-<td><p></p></td>
+<td><p>Cannot be disabled</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<section id="gtk4">
+<h3>Gtk4<a class="headerlink" href="#gtk4" title="Link to this heading">¶</a></h3>
+<p>In <a class="reference internal" href="#7e525ca6"><span class="xref myst">commit 7e525ca6</span></a>, steppers were removed from the Gtk4 codebase.</p>
+</section>
 </section>
 <section id="configuring">
 <h2>Configuring<a class="headerlink" href="#configuring" title="Link to this heading">¶</a></h2>
 <section id="gtk">
 <h3>Gtk<a class="headerlink" href="#gtk" title="Link to this heading">¶</a></h3>
-<p>The user or desktop environment should set <code class="docutils literal notranslate"><span class="pre">/org/gnome/desktop/overlay-scrolling</span></code> in dconf:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>org.gnome.desktop.interface<span class="w"> </span>overlay-scrolling<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="c1"># or true</span>
+<section id="gtk2">
+<h4>Gtk2<a class="headerlink" href="#gtk2" title="Link to this heading">¶</a></h4>
+<p>This can be configured by the Gtk2 theme, or overridden by the user in <code class="docutils literal notranslate"><span class="pre">~/.gtkrc-2.0</span></code>:</p>
+<div class="highlight-gtkrc notranslate"><div class="highlight"><pre><span></span>style &quot;scrollbar-style&quot; {
+    GtkScrollbar::has-backward-stepper = 1
+    GtkScrollbar::has-forward-stepper  = 1
+    GtkScrollbar::has-secondary-backward-stepper = 1
+    GtkScrollbar::has-secondary-forward-stepper  = 1
+}
+class &quot;GtkScrollbar&quot; style &quot;scrollbar-style&quot;
 </pre></div>
 </div>
-<p>Overlay scrolling is not supported in Gtk2.</p>
-<section id="notes">
-<h4>Notes<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h4>
-<p>The Gtk developers <a class="reference external" href="https://bugzilla.gnome.org/show_bug.cgi?id=790677">do not intend for this to be user-configurable</a>:</p>
-<blockquote>
-<div><p>What we will not add is a user-accessible toggle, or an environment variable. This is an application developer decision, not a toolkit setting. If the application developer wants to provide an application-specific setting and wire it to the GtkScrolledWindow API, it’s entirely in their capacity to do so.</p>
-</div></blockquote>
-<p>However, the Gtk developers may have changed their mind, as this is now exposed as an accessibility setting in GNOME.</p>
 </section>
-</section>
-<section id="firefox-and-mozilla-derivatives">
-<h3>Firefox and Mozilla derivatives<a class="headerlink" href="#firefox-and-mozilla-derivatives" title="Link to this heading">¶</a></h3>
-<p>The user should set <code class="docutils literal notranslate"><span class="pre">widget.gtk.overlay-scrollbars.enabled</span></code> in <code class="docutils literal notranslate"><span class="pre">about:config</span></code>.</p>
-</section>
-<section id="chromium-chromium-derivatives-and-electron-applications">
-<h3>Chromium, Chromium derivatives, and Electron applications<a class="headerlink" href="#chromium-chromium-derivatives-and-electron-applications" title="Link to this heading">¶</a></h3>
-<p>This is supposed to work, but it appears that Chromium is stuck without overlay scrollbars at least on Chromium 143.</p>
-<p>This can be configured by using the <code class="docutils literal notranslate"><span class="pre">--enable-features</span></code> command-line flag, or by accessing <code class="docutils literal notranslate"><span class="pre">chrome://flags</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chromium<span class="w"> </span>--enable-features<span class="o">=</span>OverlayScrollbar
+<section id="gtk3">
+<h4>Gtk3<a class="headerlink" href="#gtk3" title="Link to this heading">¶</a></h4>
+<p>This can be configured by the Gtk3 theme, or overridden by the user in <code class="docutils literal notranslate"><span class="pre">~/.config/gtk-3.0/gtk.css</span></code>:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">scrollbar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">-GtkScrollbar-has-backward-stepper</span><span class="p">:</span><span class="w"> </span><span class="n">true</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">-GtkScrollbar-has-forward-stepper</span><span class="p">:</span><span class="w"> </span><span class="n">true</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">FluentScrollbar</span></code> and <code class="docutils literal notranslate"><span class="pre">FluentOverlayScrollbar</span></code> features allow enabling the redesign of the scrollbar to match Microsoft’s Fluent design (see the <a class="reference external" href="https://docs.google.com/document/d/1haDpb1QIh2PaLwsQD1i4WHFq_5_jSK3XK9lhgSs4WkM/edit?tab=t.0">visual spec</a>, <a class="reference external" href="https://docs.google.com/document/d/1GCmz2nbJV1XiopoLHnlrVaHCjhQMdiyDfPN_a22OIjU/edit?tab=t.0">technical design doc</a>, and <a class="reference external" href="https://issues.chromium.org/issues/40213017">Chromium bug</a>).</p>
-<p>Google <a class="reference external" href="https://issues.chromium.org/issues/427971927">appears to intend to</a> check <code class="docutils literal notranslate"><span class="pre">org.gnome.desktop.interface</span> <span class="pre">overlay-scrolling</span></code> in a future release.</p>
+</section>
+</section>
+<section id="qt">
+<h3>Qt<a class="headerlink" href="#qt" title="Link to this heading">¶</a></h3>
+<p>In Qt, the scrollbars are drawn by the style. Thus, the scrollbar configuration must be done per style.</p>
+<section id="breeze">
+<h4>Breeze<a class="headerlink" href="#breeze" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">~/.config/breezerc</span></code>:</p>
+<div class="highlight-rc notranslate"><div class="highlight"><pre><span></span>[Style]
+ScrollBarAddLineButtons=2
+ScrollBarSubLineButtons=2
+</pre></div>
+</div>
+<p>The default is to not have any steppers; if this is true then the mentioned configuration keys in <code class="docutils literal notranslate"><span class="pre">~/.config/breezerc</span></code> will be empty.</p>
+</section>
+<section id="oxygen">
+<h4>Oxygen<a class="headerlink" href="#oxygen" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">~/.config/oxygenrc</span></code>:</p>
+<div class="highlight-rc notranslate"><div class="highlight"><pre><span></span>[Scrollbars]
+ScrollBarAddLineButtons=1
+ScrollBarSubLineButtons=1
+</pre></div>
+</div>
+<p>The default is to one stepper at the top and two at the bottom; if this is true then the mentioned configuration keys in <code class="docutils literal notranslate"><span class="pre">~/.config/oxygenrc</span></code> will be empty.</p>
+</section>
+<section id="kvantum">
+<h4>Kvantum<a class="headerlink" href="#kvantum" title="Link to this heading">¶</a></h4>
+<p>In the user’s <code class="docutils literal notranslate"><span class="pre">kvconfig</span></code>, the user should specify under <code class="docutils literal notranslate"><span class="pre">[Style]</span></code> the key <code class="docutils literal notranslate"><span class="pre">scroll_arrows</span></code>, which is true or false.</p>
+</section>
 </section>
 </section>
 </section>
@@ -353,17 +401,7 @@
         
         <div class="related-pages">
           
-          <a class="prev-page" href="scrollbar-position.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Scrollbar position</div>
-                
-              </div>
-            </a>
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -394,16 +432,24 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Overlay scrollbars</a><ul>
+<li><a class="reference internal" href="#">Scrollbar steppers</a><ul>
 <li><a class="reference internal" href="#get-the-user-s-preference">Get the user’s preference</a></li>
-<li><a class="reference internal" href="#supported-toolkits">Supported toolkits</a></li>
-<li><a class="reference internal" href="#configuring">Configuring</a><ul>
-<li><a class="reference internal" href="#gtk">Gtk</a><ul>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#supported-toolkits">Supported toolkits</a><ul>
+<li><a class="reference internal" href="#gtk4">Gtk4</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#firefox-and-mozilla-derivatives">Firefox and Mozilla derivatives</a></li>
-<li><a class="reference internal" href="#chromium-chromium-derivatives-and-electron-applications">Chromium, Chromium derivatives, and Electron applications</a></li>
+<li><a class="reference internal" href="#configuring">Configuring</a><ul>
+<li><a class="reference internal" href="#gtk">Gtk</a><ul>
+<li><a class="reference internal" href="#gtk2">Gtk2</a></li>
+<li><a class="reference internal" href="#gtk3">Gtk3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qt">Qt</a><ul>
+<li><a class="reference internal" href="#breeze">Breeze</a></li>
+<li><a class="reference internal" href="#oxygen">Oxygen</a></li>
+<li><a class="reference internal" href="#kvantum">Kvantum</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
