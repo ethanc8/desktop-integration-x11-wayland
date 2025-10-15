@@ -10,6 +10,8 @@ Toolkits and applications should read `/org/gnome/desktop/overlay-scrolling` fro
 gsettings get org.gnome.desktop.interface overlay-scrolling
 ```
 
+Ideally, they should read the [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`, but many settings portals do not expose that.
+
 ## Supported toolkits
 
 | Toolkit           | Support | Default behavior | Notes                 |
@@ -26,11 +28,16 @@ gsettings get org.gnome.desktop.interface overlay-scrolling
 
 ### Gtk
 
-The user or desktop environment should set `/org/gnome/desktop/overlay-scrolling` in dconf:
+It is controlled by the [Gtk setting]([`gtk-overlay-scrolling`](https://docs.gtk.org/gtk4/property.Settings.gtk-overlay-scrolling.html).
 
-```bash
-gsettings set org.gnome.desktop.interface overlay-scrolling false # or true
-```
+To configure this:
+* Set [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`
+* Set GSetting/dconf setting `org.gnome.desktop.interface overlay-scrolling`
+* Set `gtk-overlay-scrolling` in the Gtk `settings.ini`
+
+Even though Gtk3 does not support setting this setting via GSettings, setting it via GSettings seems to work after restarting the Gtk3 apps.
+
+This setting cannot be set via XSettings.
 
 Overlay scrolling is not supported in Gtk2.
 
@@ -40,7 +47,7 @@ The Gtk developers [do not intend for this to be user-configurable](https://bugz
 
 > What we will not add is a user-accessible toggle, or an environment variable. This is an application developer decision, not a toolkit setting. If the application developer wants to provide an application-specific setting and wire it to the GtkScrolledWindow API, it's entirely in their capacity to do so.
 
-However, the Gtk developers may have changed their mind, as this is now exposed as an accessibility setting in GNOME.
+However, the Gtk developers may have changed their mind, as this is now exposed as an accessibility setting in GNOME (see bug [gnome-control-center#1701](https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1701)).
 
 ### Firefox and Mozilla derivatives
 
