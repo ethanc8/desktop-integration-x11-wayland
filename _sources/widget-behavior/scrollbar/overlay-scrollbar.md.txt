@@ -4,7 +4,7 @@
 
 ## Get the user's preference
 
-Toolkits and applications should read the [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`, but many settings portals do not expose that.
+Toolkits and applications should read the [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`.
 
 ## Supported toolkits
 
