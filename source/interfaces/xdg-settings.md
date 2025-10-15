@@ -1,5 +1,7 @@
 # XDG Desktop Portal settings interface
 
+Settings portals [should fall back](https://invent.kde.org/plasma/xdg-desktop-portal-kde/-/issues/25) to xdg-desktop-portal-gtk, which will proxy to GSettings.
+
 % TODO: Complete the list of settings
 
 <!-- 

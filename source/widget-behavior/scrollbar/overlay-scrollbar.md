@@ -4,13 +4,7 @@
 
 ## Get the user's preference
 
-Toolkits and applications should read `/org/gnome/desktop/overlay-scrolling` from dconf.
-
-```bash
-gsettings get org.gnome.desktop.interface overlay-scrolling
-```
-
-Ideally, they should read the [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`, but many settings portals do not expose that.
+Toolkits and applications should read the [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`, but many settings portals do not expose that.
 
 ## Supported toolkits
 
@@ -28,7 +22,7 @@ Ideally, they should read the [XDG setting](/interfaces/xdg-settings) `org.gnome
 
 ### Gtk
 
-It is controlled by the [Gtk setting]([`gtk-overlay-scrolling`](https://docs.gtk.org/gtk4/property.Settings.gtk-overlay-scrolling.html).
+It is controlled by the [Gtk setting](/interfaces/gtk-settings) [`gtk-overlay-scrolling`](https://docs.gtk.org/gtk4/property.Settings.gtk-overlay-scrolling.html).
 
 To configure this:
 * Set [XDG setting](/interfaces/xdg-settings) `org.gnome.desktop.interface overlay-scrolling`
