@@ -12,5 +12,6 @@ This site intends to document how:
 :titlesonly: true
 
 widget-behavior/index
+interfaces/index
 :::
 

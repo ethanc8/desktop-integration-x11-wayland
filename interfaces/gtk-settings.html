@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Scrollbars" href="scrollbar/index.html" /><link rel="prev" title="Desktop integration on X11 and Wayland" href="../index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Widget behavior - Desktop integration on X11 and Wayland</title>
+        <title>Gtk.Settings - Desktop integration on X11 and Wayland</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -202,19 +202,19 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Widget behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="scrollbar/index.html">Scrollbars</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar/scrollbar-position.html">Scrollbar position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar/overlay-scrollbar.html">Overlay scrollbars</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar/scrollbar-stepper.html">Scrollbar steppers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar/zoom-scrolling.html">Zoom scrolling</a></li>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../widget-behavior/index.html">Widget behavior</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../widget-behavior/scrollbar/index.html">Scrollbars</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../widget-behavior/scrollbar/scrollbar-position.html">Scrollbar position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../widget-behavior/scrollbar/overlay-scrollbar.html">Overlay scrollbars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../widget-behavior/scrollbar/scrollbar-stepper.html">Scrollbar steppers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../widget-behavior/scrollbar/zoom-scrolling.html">Zoom scrolling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interfaces/index.html">Interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Interfaces</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../interfaces/xdg-settings.html">XDG Desktop Portal settings interface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Interfaces</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="xdg-settings.html">XDG Desktop Portal settings interface</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +237,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/widget-behavior/index.md.txt" title="View this page">
+  <a class="muted-link" href="../_sources/interfaces/gtk-settings.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -257,20 +257,28 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="widget-behavior">
-<h1>Widget behavior<a class="headerlink" href="#widget-behavior" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+          <section class="tex2jax_ignore mathjax_ignore" id="gtk-settings">
+<h1>Gtk.Settings<a class="headerlink" href="#gtk-settings" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://docs.gtk.org/gtk4/class.Settings.html">Gtk4 API documentation</a> | <a class="reference external" href="https://docs.gtk.org/gtk3/class.Settings.html">Gtk3 API documentation</a></p>
+<p>In Gtk3, Gtk.Settings checks the following sources, in order:</p>
+<ul class="simple">
+<li><p>XSettings (<a class="reference external" href="https://github.com/GNOME/gtk/blob/3.24.51/gdk/x11/gdksettings.c#L27">mapping</a>)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">settings.ini</span></code></p></li>
+</ul>
+<p>In Gtk4 prior to Gtk 4.22, Gtk.Settings checks the following sources, in order:</p>
+<ul class="simple">
+<li><p>If on X11, XSettings (<a class="reference external" href="https://github.com/GNOME/gtk/blob/4.20.2/gdk/x11/gdksettings.c#L27">mapping</a>)</p></li>
+<li><p>If on Wayland:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="scrollbar/index.html">Scrollbars</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scrollbar/scrollbar-position.html">Scrollbar position</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrollbar/overlay-scrollbar.html">Overlay scrollbars</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrollbar/scrollbar-stepper.html">Scrollbar steppers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrollbar/zoom-scrolling.html">Zoom scrolling</a></li>
+<li><p>The <a class="reference internal" href="xdg-settings.html"><span class="doc std std-doc">XDG Desktop Portal Settings portal</span></a></p></li>
+<li><p>If the portal was inaccessible, from GSettings (dconf)</p></li>
+<li><p><a class="reference external" href="https://github.com/GNOME/gtk/blob/4.20.2/gdk/wayland/gdksettings-wayland.c#L309">The mapping for both</a> is the same</p></li>
 </ul>
 </li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">settings.ini</span></code></p></li>
 </ul>
-</div>
+<p>In Gtk 4.22, <a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/-/issues/7727">the GSettings fallback will be removed</a>.</p>
+<p>Note that not all Gtk.Settings can be configured via XSettings or the Settings portal.</p>
 </section>
 
         </article>
@@ -278,26 +286,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="scrollbar/index.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Scrollbars</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../index.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Home</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
