@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Scrollbar position" href="scrollbar-position.html" /><link rel="prev" title="Widget behavior" href="../index.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Interfaces" href="../../interfaces/index.html" /><link rel="prev" title="Zoom scrolling" href="zoom-scrolling.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Scrollbars - Desktop integration on X11 and Wayland</title>
+        <title>Clicking in the scrollbar track - Desktop integration on X11 and Wayland</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -204,12 +204,12 @@
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Widget behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Scrollbars</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Scrollbars</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="scrollbar-position.html">Scrollbar position</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overlay-scrollbar.html">Overlay scrollbars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scrollbar-stepper.html">Scrollbar steppers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zoom-scrolling.html">Zoom scrolling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar-click.html">Clicking in the scrollbar track</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Clicking in the scrollbar track</a></li>
 </ul>
 </li>
 </ul>
@@ -238,7 +238,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/widget-behavior/scrollbar/index.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/widget-behavior/scrollbar/scrollbar-click.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -258,23 +258,57 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="scrollbars">
-<h1>Scrollbars<a class="headerlink" href="#scrollbars" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="scrollbar-position.html">Scrollbar position</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overlay-scrollbar.html">Overlay scrollbars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrollbar-stepper.html">Scrollbar steppers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zoom-scrolling.html">Zoom scrolling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrollbar-click.html">Clicking in the scrollbar track</a></li>
-</ul>
-</div>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
+          <section class="tex2jax_ignore mathjax_ignore" id="clicking-in-the-scrollbar-track">
+<h1>Clicking in the scrollbar track<a class="headerlink" href="#clicking-in-the-scrollbar-track" title="Link to this heading">¶</a></h1>
+<p>There are two different behaviors for what happens when one clicks on the scrollbar track:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pavelfatin.com/scrolling-with-pleasure/">Scrolling with pleasure</a> – talks about the fundamental issues in smooth and high-precision scrolling</p></li>
+<li><p>The view scrolls up or down one page</p></li>
+<li><p>The view scrolls to the selected position</p></li>
 </ul>
+<section id="get-the-user-s-preference">
+<h2>Get the user’s preference<a class="headerlink" href="#get-the-user-s-preference" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>If the user is on KDE:</p>
+<ul>
+<li><p>Get <code class="docutils literal notranslate"><span class="pre">[KDE]</span> <span class="pre">ScrollbarLeftClickNavigatesByPage</span></code> from <code class="docutils literal notranslate"><span class="pre">~/.config/kdeglobals</span></code></p></li>
+</ul>
+</li>
+<li><p>If the user is on a Gtk-based X11 desktop, or your app is running on XWayland</p>
+<ul>
+<li><p>Get <code class="docutils literal notranslate"><span class="pre">Gtk/PrimaryButtonWarpsSlider</span></code> from XSettings</p></li>
+</ul>
+</li>
+<li><p>Otherwise:</p>
+<ul>
+<li><p>Get <code class="docutils literal notranslate"><span class="pre">gtk-overlay-scrolling</span></code> from the Gtk <code class="docutils literal notranslate"><span class="pre">settings.ini</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="configuring">
+<h2>Configuring<a class="headerlink" href="#configuring" title="Link to this heading">¶</a></h2>
+<section id="gtk">
+<h3>Gtk<a class="headerlink" href="#gtk" title="Link to this heading">¶</a></h3>
+<p>It is controlled by the <a class="reference internal" href="../../interfaces/gtk-settings.html"><span class="doc std std-doc">Gtk setting</span></a> <a class="reference external" href="https://docs.gtk.org/gtk4/property.Settings.gtk-primary-button-warps-slider.html"><code class="docutils literal notranslate"><span class="pre">gtk-primary-button-warps-slider</span></code></a>.</p>
+<ul class="simple">
+<li><p>Set the XSetting <code class="docutils literal notranslate"><span class="pre">Gtk/PrimaryButtonWarpsSlider</span></code></p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">gtk-overlay-scrolling</span></code> in the Gtk <code class="docutils literal notranslate"><span class="pre">settings.ini</span></code></p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">gtk-overlay-scrolling</span></code> in <code class="docutils literal notranslate"><span class="pre">~/.gtkrc-2.0</span></code></p></li>
+</ul>
+<p>It is not configurable via XDG settings or GSettings.</p>
+</section>
+<section id="qt">
+<h3>Qt<a class="headerlink" href="#qt" title="Link to this heading">¶</a></h3>
+<p>This can be set by the style or by the QPA; QPAs other than KDE don’t seem to expose a preference.</p>
+<section id="kde-qpa">
+<h4>KDE (QPA)<a class="headerlink" href="#kde-qpa" title="Link to this heading">¶</a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">~/.config/kdeglobals</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[KDE]</span>
+<span class="na">ScrollbarLeftClickNavigatesByPage</span><span class="o">=</span><span class="s">true</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 </section>
 
@@ -283,23 +317,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="scrollbar-position.html">
+          <a class="next-page" href="../../interfaces/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Scrollbar position</div>
+                <div class="title">Interfaces</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="zoom-scrolling.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Widget behavior</div>
+                <div class="title">Zoom scrolling</div>
                 
               </div>
             </a>
@@ -333,8 +367,16 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Scrollbars</a><ul>
-<li><a class="reference internal" href="#further-reading">Further reading</a></li>
+<li><a class="reference internal" href="#">Clicking in the scrollbar track</a><ul>
+<li><a class="reference internal" href="#get-the-user-s-preference">Get the user’s preference</a></li>
+<li><a class="reference internal" href="#configuring">Configuring</a><ul>
+<li><a class="reference internal" href="#gtk">Gtk</a></li>
+<li><a class="reference internal" href="#qt">Qt</a><ul>
+<li><a class="reference internal" href="#kde-qpa">KDE (QPA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
