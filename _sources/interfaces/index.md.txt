@@ -6,5 +6,5 @@
 :titlesonly: true
 
 xdg-settings
-gtk-settigs
+gtk-settings
 :::
