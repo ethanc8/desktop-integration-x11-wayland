@@ -1,0 +1,665 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="org.kde.StatusNotifierWatcher" href="xdg-org.kde.StatusNotifierWatcher.html" /><link rel="prev" title="org.freedesktop.Notifications" href="xdg-org.freedesktop.Notifications.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>org.kde.StatusNotifierItem - Desktop integration on X11 and Wayland</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Desktop integration on X11 and Wayland</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Desktop integration on X11 and Wayland</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../widget-behavior/index.html">Widget behavior</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../widget-behavior/scrollbar/index.html">Scrollbars</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../widget-behavior/scrollbar/scrollbar-position.html">Scrollbar position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../widget-behavior/scrollbar/overlay-scrollbar.html">Overlay scrollbars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../widget-behavior/scrollbar/scrollbar-stepper.html">Scrollbar steppers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../widget-behavior/scrollbar/zoom-scrolling.html">Zoom scrolling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../widget-behavior/scrollbar/scrollbar-click.html">Clicking in the scrollbar track</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../interfaces/index.html">Interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Interfaces</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../interfaces/xdg-settings.html">XDG Desktop Portal settings interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../interfaces/gtk-settings.html">Gtk.Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Panels and application icons</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Panels and application icons</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">System tray menus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of System tray menus</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../appindicator.html">AppIndicator</a></li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../kstatusnotifieritem.html">KStatusNotifierItem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4 current has-children"><a class="reference internal" href="index.html">KStatusNotifierItem interface description</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem interface description</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="xdg-org.freedesktop.Notifications.html">org.freedesktop.Notifications</a></li>
+<li class="toctree-l5 current current-page"><a class="current reference internal" href="#">org.kde.StatusNotifierItem</a></li>
+<li class="toctree-l5"><a class="reference internal" href="xdg-org.kde.StatusNotifierWatcher.html">org.kde.StatusNotifierWatcher</a></li>
+<li class="toctree-l5"><a class="reference internal" href="icons.html">Icons</a></li>
+<li class="toctree-l5"><a class="reference internal" href="markup.html">Markup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../draft-freedesktop.html">Draft replacement Freedesktop specification</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systray-applet/index.html">System tray applets</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of System tray applets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systray-applet/xembed.html">XEmbed-based protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systray-applet/draft-wayland.html">Draft Wayland protocol <code class="docutils literal notranslate"><span class="pre">ext-tray-v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systray-applet/xappstatusicon.html">XAppStatusIcon</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../../_sources/panel-appicon/systray-menu/kstatusnotifieritem-iface/xdg-org.kde.StatusNotifierItem.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <p>Title: org.kde.StatusNotifierItem D-Bus Interface
+Slug: org.kde.StatusNotifierItem</p>
+<section class="tex2jax_ignore mathjax_ignore" id="org-kde-statusnotifieritem">
+<h1>org.kde.StatusNotifierItem<a class="headerlink" href="#org-kde-statusnotifieritem" title="Link to this heading">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Each application can register an arbitrary number of Status Notifier Items either:</p>
+<ul class="simple">
+<li><p>by registering on the session bus the service <code class="docutils literal notranslate"><span class="pre">org.kde.StatusNotifierItem-PID-ID</span></code>, where PID is the process id of the application and ID is an arbitrary numeric unique identifier between different instances registered by the same application. The application must then register this service name with <a class="reference internal" href="#xdg-org.kde.StatusNotifierWatcher#RegisterStatusNotifierItem"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem</span></code></span></a>. Sandboxed applications may not use this procedure.</p></li>
+<li><p>(<strong>recommended</strong>) by registering an arbitrary path starting with <code class="docutils literal notranslate"><span class="pre">/</span></code> to <a class="reference internal" href="#xdg-org.kde.StatusNotifierWatcher#RegisterStatusNotifierItem"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem</span></code></span></a>.</p></li>
+</ul>
+<p>Each instance of StatusNotifierItem must provide an object called <code class="docutils literal notranslate"><span class="pre">StatusNotifierItem</span></code> with the following properties, methods and signals described in the following sections.</p>
+<section id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+</section>
+<section id="org-kde-statusnotifieritem-category">
+<h3>org.kde.StatusNotifierItem:Category<a class="headerlink" href="#org-kde-statusnotifieritem-category" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Category</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>General category of icon. This MAY be used for sorting purposes and MUST NOT change the presentation.</p>
+<p>Currently defined categories are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ApplicationStatus</span></code>: The item describes the status of a generic application, for instance the current state of a media player. In the case where the category of the item can not be known, such as when the item is being proxied from another incompatible or emulated system, <code class="docutils literal notranslate"><span class="pre">ApplicationStatus</span></code> can be used a sensible default fallback.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Communications</span></code>: The item describes the status of communication oriented applications, like an instant messenger or an email client.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SystemServices</span></code>: The item describes services of the system not seen as a stand alone application by the user, such as an indicator for the activity of a disk indexing service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Hardware</span></code>: The item describes the state and control of a particular hardware, such as an indicator of the battery charge or sound card volume control.</p></li>
+</ul>
+</section>
+<section id="org-kde-statusnotifieritem-id">
+<h3>org.kde.StatusNotifierItem:Id<a class="headerlink" href="#org-kde-statusnotifieritem-id" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Id</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>A name that should be unique for this application and consistent between sessions, such as the application name itself.</p>
+</section>
+<section id="org-kde-statusnotifieritem-title">
+<h3>org.kde.StatusNotifierItem:Title<a class="headerlink" href="#org-kde-statusnotifieritem-title" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Title</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Descriptive title for the application; this MAY be shown by the host.</p>
+</section>
+<section id="org-kde-statusnotifieritem-status">
+<h3>org.kde.StatusNotifierItem:Status<a class="headerlink" href="#org-kde-statusnotifieritem-status" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Status</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Describes the status of this item or of the associated application.</p>
+<p>The allowed values for the Status property are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Passive</span></code>: The item doesn’t convey important information to the user, it can be considered an “idle” status and is likely that hosts will chose to hide it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Active</span></code>: The item is active, is more important that the item will be shown in some way to the user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NeedsAttention</span></code>: The item carries really important information for the user, such as battery charge running out and is wants to incentive the direct user intervention. hosts should emphasize in some way the items with NeedsAttention status.</p></li>
+</ul>
+</section>
+<section id="org-kde-statusnotifieritem-windowid">
+<h3>org.kde.StatusNotifierItem:WindowId<a class="headerlink" href="#org-kde-statusnotifieritem-windowid" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">WindowId</span> <span class="n">readable</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>It’s the windowing-system dependent identifier for a window, the application can chose one of its windows to be available through this property or just set <code class="docutils literal notranslate"><span class="pre">0</span></code> if it’s not interested.</p>
+</section>
+<section id="org-kde-statusnotifieritem-iconthemepath">
+<h3>org.kde.StatusNotifierItem:IconThemePath<a class="headerlink" href="#org-kde-statusnotifieritem-iconthemepath" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">IconThemePath</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>The path to an icon theme where the icon specified in <code class="docutils literal notranslate"><span class="pre">IconName</span></code> can be found.</p>
+</section>
+<section id="org-kde-statusnotifieritem-menu">
+<h3>org.kde.StatusNotifierItem:Menu<a class="headerlink" href="#org-kde-statusnotifieritem-menu" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Menu</span> <span class="n">readable</span> <span class="n">o</span>
+</pre></div>
+</div>
+<p>A menu to show when the user right-clicks or performs some host-defined interaction with the status notifier item.</p>
+<p>DBus path to an object which implements the <code class="docutils literal notranslate"><span class="pre">com.canonical.dbusmenu</span></code> interface.</p>
+<p>TODO: Are GMenus allowed?</p>
+</section>
+<section id="org-kde-statusnotifieritem-itemismenu">
+<h3>org.kde.StatusNotifierItem:ItemIsMenu<a class="headerlink" href="#org-kde-statusnotifieritem-itemismenu" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">ItemIsMenu</span> <span class="n">readable</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>If true, the icon only supports showing context menu. The host should prefer showing the menu instead of <code class="docutils literal notranslate"><span class="pre">Activate()</span></code>.</p>
+</section>
+<section id="org-kde-statusnotifieritem-iconname">
+<h3>org.kde.StatusNotifierItem:IconName<a class="headerlink" href="#org-kde-statusnotifieritem-iconname" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">IconName</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>The StatusNotifierItem can carry an icon that can be used by the host to identify the item.</p>
+<p>An icon can either be identified by its Freedesktop-compliant icon name, carried by this property of by the icon data itself, carried by the property <code class="docutils literal notranslate"><span class="pre">IconPixmap</span></code>. hosts are encouraged to prefer icon names over icon pixmaps if both are available (FIXME: still not very defined: could e the pixmap used as fallback if an icon name is not found?)</p>
+</section>
+<section id="org-kde-statusnotifieritem-iconpixmap">
+<h3>org.kde.StatusNotifierItem:IconPixmap<a class="headerlink" href="#org-kde-statusnotifieritem-iconpixmap" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">IconPixmap</span> <span class="n">readable</span> <span class="n">a</span><span class="p">(</span><span class="n">iiay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Carries an ARGB32 binary representation of the icon, the format of icon data used in this specification is described in Section <a class="reference internal" href="icons.html"><span class="doc std std-doc">Icons</span></a>.</p>
+</section>
+<section id="org-kde-statusnotifieritem-overlayiconname">
+<h3>org.kde.StatusNotifierItem:OverlayIconName<a class="headerlink" href="#org-kde-statusnotifieritem-overlayiconname" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">OverlayIconName</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>The Freedesktop-compliant name of an icon. This can be used by the host to indicate extra state information, for instance as an overlay for the main icon.</p>
+</section>
+<section id="org-kde-statusnotifieritem-overlayiconpixmap">
+<h3>org.kde.StatusNotifierItem:OverlayIconPixmap<a class="headerlink" href="#org-kde-statusnotifieritem-overlayiconpixmap" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">OverlayIconPixmap</span> <span class="n">readable</span> <span class="n">a</span><span class="p">(</span><span class="n">iiay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ARGB32 binary representation of the overlay icon described in the previous paragraph.</p>
+</section>
+<section id="org-kde-statusnotifieritem-attentioniconname">
+<h3>org.kde.StatusNotifierItem:AttentionIconName<a class="headerlink" href="#org-kde-statusnotifieritem-attentioniconname" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">AttentionIconName</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>The Freedesktop-compliant name of an icon. This can be used by the host to indicate that the item is in <code class="docutils literal notranslate"><span class="pre">RequestingAttention</span></code> state.</p>
+</section>
+<section id="org-kde-statusnotifieritem-attentioniconpixmap">
+<h3>org.kde.StatusNotifierItem:AttentionIconPixmap<a class="headerlink" href="#org-kde-statusnotifieritem-attentioniconpixmap" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">AttentionIconPixmap</span> <span class="n">readable</span> <span class="n">a</span><span class="p">(</span><span class="n">iiay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ARGB32 binary representation of the requesting attention icon describe in the previous paragraph.</p>
+</section>
+<section id="org-kde-statusnotifieritem-attentionmoviename">
+<h3>org.kde.StatusNotifierItem:AttentionMovieName<a class="headerlink" href="#org-kde-statusnotifieritem-attentionmoviename" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">AttentionMovieName</span> <span class="n">readable</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>An item can also specify an animation associated to the <code class="docutils literal notranslate"><span class="pre">RequestingAttention</span></code> state. This should be either a Freedesktop-compliant icon name or a full path. The visualization can chose between the movie or AttentionIconPixmap (or using neither of those) at its discretion.</p>
+</section>
+<section id="org-kde-statusnotifieritem-tooltip">
+<h3>org.kde.StatusNotifierItem:ToolTip<a class="headerlink" href="#org-kde-statusnotifieritem-tooltip" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">ToolTip</span> <span class="n">readable</span> <span class="p">(</span><span class="n">sa</span><span class="p">(</span><span class="n">iiay</span><span class="p">)</span><span class="n">ss</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Data structure that describes extra information associated to this item, that can be visualized for instance by a tooltip (or by any other mean the visualization consider appropriate. Components are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: Freedesktop-compliant name for an icon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a(iiay)</span></code>: icon data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: title for this tooltip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: descriptive text for this tooltip. It can contain also a subset of the HTML markup language, for a list of allowed tags see Section <a class="reference internal" href="markup.html"><span class="doc std std-doc">Markup</span></a>.</p></li>
+</ul>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h3>
+</section>
+<section id="org-kde-statusnotifieritem-providexdgactivationtoken">
+<h3>org.kde.StatusNotifierItem.ProvideXdgActivationToken<a class="headerlink" href="#org-kde-statusnotifieritem-providexdgactivationtoken" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">ProvideXdgActivationToken</span> <span class="p">(</span>
+      <span class="n">IN</span> <span class="n">token</span> <span class="n">s</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<ul class="simple">
+<li><p>token:</p></li>
+</ul>
+</section>
+<section id="org-kde-statusnotifieritem-contextmenu">
+<h3>org.kde.StatusNotifierItem.ContextMenu<a class="headerlink" href="#org-kde-statusnotifieritem-contextmenu" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">ContextMenu</span> <span class="p">(</span>
+      <span class="n">IN</span> <span class="n">x</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">IN</span> <span class="n">y</span> <span class="n">i</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Asks the status notifier item to show a context menu. This is typically a consequence of user input, such as mouse right click over the graphical representation of the item.</p>
+<p>the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters are in screen coordinates and are to be considered an hint to the item about where to show the context menu.</p>
+<p>TODO: Are the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates a bottom corner or some other location?</p>
+</section>
+<section id="org-kde-statusnotifieritem-activate">
+<h3>org.kde.StatusNotifierItem.Activate<a class="headerlink" href="#org-kde-statusnotifieritem-activate" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Activate</span> <span class="p">(</span>
+      <span class="n">IN</span> <span class="n">x</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">IN</span> <span class="n">y</span> <span class="n">i</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Asks the status notifier item for activation,.This is typically a consequence of user input, such as mouse left click over the graphical representation of the item. The application will perform any task is considered appropriate as an activation request.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters are in screen coordinates and is to be considered an hint to the item where to show eventual windows (if any).</p>
+</section>
+<section id="org-kde-statusnotifieritem-secondaryactivate">
+<h3>org.kde.StatusNotifierItem.SecondaryActivate<a class="headerlink" href="#org-kde-statusnotifieritem-secondaryactivate" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">SecondaryActivate</span> <span class="p">(</span>
+      <span class="n">IN</span> <span class="n">x</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">IN</span> <span class="n">y</span> <span class="n">i</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Is to be considered a secondary and less important form of activation compared to Activate. This is typically a consequence of user input, such as mouse middle click over the graphical representation of the item. The application will perform any task is considered appropriate as an activation request.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters are in screen coordinates and is to be considered an hint to the item where to show eventual windows (if any).</p>
+</section>
+<section id="org-kde-statusnotifieritem-scroll">
+<h3>org.kde.StatusNotifierItem.Scroll<a class="headerlink" href="#org-kde-statusnotifieritem-scroll" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Scroll</span> <span class="p">(</span>
+      <span class="n">IN</span> <span class="n">delta</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">IN</span> <span class="n">orientation</span> <span class="n">s</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The user asked for a scroll action. This is caused from input such as mouse wheel over the graphical representation of the item.</p>
+<ul class="simple">
+<li><p>delta: the amount of scroll</p></li>
+<li><p>orientation: the horizontal or vertical orientation of the scroll request and its legal values are <code class="docutils literal notranslate"><span class="pre">&quot;horizontal&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;vertical&quot;</span></code>.</p></li>
+</ul>
+</section>
+<section id="signals">
+<h3>Signals<a class="headerlink" href="#signals" title="Link to this heading">¶</a></h3>
+</section>
+<section id="org-kde-statusnotifieritem-newtitle">
+<h3>org.kde.StatusNotifierItem::NewTitle<a class="headerlink" href="#org-kde-statusnotifieritem-newtitle" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewTitle</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new title: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newicon">
+<h3>org.kde.StatusNotifierItem::NewIcon<a class="headerlink" href="#org-kde-statusnotifieritem-newicon" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewIcon</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new icon: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newattentionicon">
+<h3>org.kde.StatusNotifierItem::NewAttentionIcon<a class="headerlink" href="#org-kde-statusnotifieritem-newattentionicon" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewAttentionIcon</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new attention icon: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newoverlayicon">
+<h3>org.kde.StatusNotifierItem::NewOverlayIcon<a class="headerlink" href="#org-kde-statusnotifieritem-newoverlayicon" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewOverlayIcon</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new overlay icon: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newmenu">
+<h3>org.kde.StatusNotifierItem::NewMenu<a class="headerlink" href="#org-kde-statusnotifieritem-newmenu" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewMenu</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new context menu: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newtooltip">
+<h3>org.kde.StatusNotifierItem::NewToolTip<a class="headerlink" href="#org-kde-statusnotifieritem-newtooltip" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewToolTip</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>The item has a new tooltip: the host should read it again immediately.</p>
+</section>
+<section id="org-kde-statusnotifieritem-newstatus">
+<h3>org.kde.StatusNotifierItem::NewStatus<a class="headerlink" href="#org-kde-statusnotifieritem-newstatus" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NewStatus</span> <span class="p">(</span>
+      <span class="n">status</span> <span class="n">s</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The item has a new status, that is passed as an argument of the signal.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="xdg-org.kde.StatusNotifierWatcher.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">org.kde.StatusNotifierWatcher</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="xdg-org.freedesktop.Notifications.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">org.freedesktop.Notifications</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Ethan C and contributors
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">org.kde.StatusNotifierItem</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-category">org.kde.StatusNotifierItem:Category</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-id">org.kde.StatusNotifierItem:Id</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-title">org.kde.StatusNotifierItem:Title</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-status">org.kde.StatusNotifierItem:Status</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-windowid">org.kde.StatusNotifierItem:WindowId</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-iconthemepath">org.kde.StatusNotifierItem:IconThemePath</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-menu">org.kde.StatusNotifierItem:Menu</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-itemismenu">org.kde.StatusNotifierItem:ItemIsMenu</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-iconname">org.kde.StatusNotifierItem:IconName</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-iconpixmap">org.kde.StatusNotifierItem:IconPixmap</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-overlayiconname">org.kde.StatusNotifierItem:OverlayIconName</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-overlayiconpixmap">org.kde.StatusNotifierItem:OverlayIconPixmap</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-attentioniconname">org.kde.StatusNotifierItem:AttentionIconName</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-attentioniconpixmap">org.kde.StatusNotifierItem:AttentionIconPixmap</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-attentionmoviename">org.kde.StatusNotifierItem:AttentionMovieName</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-tooltip">org.kde.StatusNotifierItem:ToolTip</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-providexdgactivationtoken">org.kde.StatusNotifierItem.ProvideXdgActivationToken</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-contextmenu">org.kde.StatusNotifierItem.ContextMenu</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-activate">org.kde.StatusNotifierItem.Activate</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-secondaryactivate">org.kde.StatusNotifierItem.SecondaryActivate</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-scroll">org.kde.StatusNotifierItem.Scroll</a></li>
+<li><a class="reference internal" href="#signals">Signals</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newtitle">org.kde.StatusNotifierItem::NewTitle</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newicon">org.kde.StatusNotifierItem::NewIcon</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newattentionicon">org.kde.StatusNotifierItem::NewAttentionIcon</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newoverlayicon">org.kde.StatusNotifierItem::NewOverlayIcon</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newmenu">org.kde.StatusNotifierItem::NewMenu</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newtooltip">org.kde.StatusNotifierItem::NewToolTip</a></li>
+<li><a class="reference internal" href="#org-kde-statusnotifieritem-newstatus">org.kde.StatusNotifierItem::NewStatus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    </body>
+</html>

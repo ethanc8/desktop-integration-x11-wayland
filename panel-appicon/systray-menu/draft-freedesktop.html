@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Clicking in the scrollbar track" href="scrollbar-click.html" /><link rel="prev" title="Scrollbar steppers" href="scrollbar-stepper.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="System tray applets" href="../systray-applet/index.html" /><link rel="prev" title="Markup" href="kstatusnotifieritem-iface/markup.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Zoom scrolling - Desktop integration on X11 and Wayland</title>
+        <title>Draft replacement Freedesktop specification - Desktop integration on X11 and Wayland</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -203,13 +203,13 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Widget behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Scrollbars</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="scrollbar-position.html">Scrollbar position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="overlay-scrollbar.html">Overlay scrollbars</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar-stepper.html">Scrollbar steppers</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Zoom scrolling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scrollbar-click.html">Clicking in the scrollbar track</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../widget-behavior/index.html">Widget behavior</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Widget behavior</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../widget-behavior/scrollbar/index.html">Scrollbars</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scrollbars</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../widget-behavior/scrollbar/scrollbar-position.html">Scrollbar position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../widget-behavior/scrollbar/overlay-scrollbar.html">Overlay scrollbars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../widget-behavior/scrollbar/scrollbar-stepper.html">Scrollbar steppers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../widget-behavior/scrollbar/zoom-scrolling.html">Zoom scrolling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../widget-behavior/scrollbar/scrollbar-click.html">Clicking in the scrollbar track</a></li>
 </ul>
 </li>
 </ul>
@@ -219,27 +219,27 @@
 <li class="toctree-l2"><a class="reference internal" href="../../interfaces/gtk-settings.html">Gtk.Settings</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../panel-appicon/index.html">Panels and application icons</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Panels and application icons</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../panel-appicon/systray-menu/index.html">System tray menus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of System tray menus</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../panel-appicon/systray-menu/appindicator.html">AppIndicator</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem.html">KStatusNotifierItem</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/index.html">KStatusNotifierItem interface description</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem interface description</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/xdg-org.freedesktop.Notifications.html">org.freedesktop.Notifications</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/xdg-org.kde.StatusNotifierItem.html">org.kde.StatusNotifierItem</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/xdg-org.kde.StatusNotifierWatcher.html">org.kde.StatusNotifierWatcher</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/icons.html">Icons</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../panel-appicon/systray-menu/kstatusnotifieritem-iface/markup.html">Markup</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Panels and application icons</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Panels and application icons</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">System tray menus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of System tray menus</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="appindicator.html">AppIndicator</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="kstatusnotifieritem.html">KStatusNotifierItem</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="kstatusnotifieritem-iface/index.html">KStatusNotifierItem interface description</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of KStatusNotifierItem interface description</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="kstatusnotifieritem-iface/xdg-org.freedesktop.Notifications.html">org.freedesktop.Notifications</a></li>
+<li class="toctree-l5"><a class="reference internal" href="kstatusnotifieritem-iface/xdg-org.kde.StatusNotifierItem.html">org.kde.StatusNotifierItem</a></li>
+<li class="toctree-l5"><a class="reference internal" href="kstatusnotifieritem-iface/xdg-org.kde.StatusNotifierWatcher.html">org.kde.StatusNotifierWatcher</a></li>
+<li class="toctree-l5"><a class="reference internal" href="kstatusnotifieritem-iface/icons.html">Icons</a></li>
+<li class="toctree-l5"><a class="reference internal" href="kstatusnotifieritem-iface/markup.html">Markup</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../panel-appicon/systray-menu/draft-freedesktop.html">Draft replacement Freedesktop specification</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Draft replacement Freedesktop specification</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../panel-appicon/systray-applet/index.html">System tray applets</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of System tray applets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../panel-appicon/systray-applet/xembed.html">XEmbed-based protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../panel-appicon/systray-applet/draft-wayland.html">Draft Wayland protocol <code class="docutils literal notranslate"><span class="pre">ext-tray-v1</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../panel-appicon/systray-applet/xappstatusicon.html">XAppStatusIcon</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../systray-applet/index.html">System tray applets</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of System tray applets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../systray-applet/xembed.html">XEmbed-based protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systray-applet/draft-wayland.html">Draft Wayland protocol <code class="docutils literal notranslate"><span class="pre">ext-tray-v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systray-applet/xappstatusicon.html">XAppStatusIcon</a></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +264,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/widget-behavior/scrollbar/zoom-scrolling.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/panel-appicon/systray-menu/draft-freedesktop.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -284,20 +284,30 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="zoom-scrolling">
-<h1>Zoom scrolling<a class="headerlink" href="#zoom-scrolling" title="Link to this heading">¶</a></h1>
-<p>Zoom scrolling is a Gtk-only feature, and is one of the reasons that the Gtk developers felt comfortable removing the scrollbar steppers.</p>
-<section id="constant-speed-zoom-scrolling">
-<h2>Constant-speed zoom scrolling<a class="headerlink" href="#constant-speed-zoom-scrolling" title="Link to this heading">¶</a></h2>
-<p>Long-pressing or shift-clicking on the scrollbar knob, then moving it in a direction, will cause it to move very slowly until you release the mouse click.</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="draft-replacement-freedesktop-specification">
+<h1>Draft replacement Freedesktop specification<a class="headerlink" href="#draft-replacement-freedesktop-specification" title="Link to this heading">¶</a></h1>
+<p>This is a draft, and there are no current implementations.</p>
+<section id="specification-draft">
+<h2>Specification (draft)<a class="headerlink" href="#specification-draft" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/TingPing/xdg-specs/-/blob/statusicon/status-icon/status-icon-spec.rst">Introduction</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/TingPing/xdg-specs/-/blob/statusicon/status-icon/gen/xdg-org.freedesktop.StatusIcon.rst"><code class="docutils literal notranslate"><span class="pre">org.freedesktop.StatusIcon</span></code> interface</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/TingPing/xdg-specs/-/blob/statusicon/status-icon/gen/xdg-org.freedesktop.portal.StatusIconService.rst"><code class="docutils literal notranslate"><span class="pre">org.freedesktop.portal.StatusIconService</span></code> interface</a></p></li>
+</ul>
 </section>
-<section id="variable-speed-zoom-scrolling">
-<h2>Variable-speed zoom scrolling<a class="headerlink" href="#variable-speed-zoom-scrolling" title="Link to this heading">¶</a></h2>
-<p>Right-clicking on the scrollbar outside the knob will cause scrolling at a somewhat faster pace than the constant-speed zoom scrolling. The user can then move the mouse cursor further from the scrollbar to increase the speed.</p>
+<section id="discussions">
+<h2>Discussions<a class="headerlink" href="#discussions" title="Link to this heading">¶</a></h2>
+<section id="amongst-developers">
+<h3>Amongst developers<a class="headerlink" href="#amongst-developers" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pagure.io/fedora-workstation/issue/264">fedora-workstation#264</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/xdg/xdg-specs/-/issues/84">xdg-specs#84</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/xdg/xdg-specs/-/merge_requests/54">xdg-specs!54</a></p></li>
+</ul>
 </section>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
-<p>Videos can be found on the <a class="reference external" href="https://blog.gtk.org/2017/10/11/a-scrolling-primer/">Gtk development blog</a>. Note that it uses odd terminology.</p>
+<section id="amongst-users">
+<h3>Amongst users<a class="headerlink" href="#amongst-users" title="Link to this heading">¶</a></h3>
+</section>
 </section>
 </section>
 
@@ -306,23 +316,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="scrollbar-click.html">
+          <a class="next-page" href="../systray-applet/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Clicking in the scrollbar track</div>
+                <div class="title">System tray applets</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="scrollbar-stepper.html">
+          <a class="prev-page" href="kstatusnotifieritem-iface/markup.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Scrollbar steppers</div>
+                <div class="title">Markup</div>
                 
               </div>
             </a>
@@ -356,10 +366,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Zoom scrolling</a><ul>
-<li><a class="reference internal" href="#constant-speed-zoom-scrolling">Constant-speed zoom scrolling</a></li>
-<li><a class="reference internal" href="#variable-speed-zoom-scrolling">Variable-speed zoom scrolling</a></li>
-<li><a class="reference internal" href="#further-reading">Further reading</a></li>
+<li><a class="reference internal" href="#">Draft replacement Freedesktop specification</a><ul>
+<li><a class="reference internal" href="#specification-draft">Specification (draft)</a></li>
+<li><a class="reference internal" href="#discussions">Discussions</a><ul>
+<li><a class="reference internal" href="#amongst-developers">Amongst developers</a></li>
+<li><a class="reference internal" href="#amongst-users">Amongst users</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

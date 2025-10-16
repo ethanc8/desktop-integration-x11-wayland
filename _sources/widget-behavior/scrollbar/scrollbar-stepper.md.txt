@@ -33,7 +33,7 @@ This is difficult; ideally, something would eventually be exposed over dconf.
 
 ### Gtk4
 
-In [commit 7e525ca6](7e525ca6), steppers were removed from the Gtk4 codebase. 
+In commit 7e525ca6, steppers were removed from the Gtk4 codebase. 
 
 ## Configuring
 
@@ -72,7 +72,7 @@ In Qt, the scrollbars are drawn by the style. Thus, the scrollbar configuration 
 
 `~/.config/breezerc`:
 
-```rc
+```ini
 [Style]
 ScrollBarAddLineButtons=2
 ScrollBarSubLineButtons=2
@@ -84,7 +84,7 @@ The default is to not have any steppers; if this is true then the mentioned conf
 
 `~/.config/oxygenrc`:
 
-```rc
+```ini
 [Scrollbars]
 ScrollBarAddLineButtons=1
 ScrollBarSubLineButtons=1

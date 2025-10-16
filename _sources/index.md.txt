@@ -13,5 +13,6 @@ This site intends to document how:
 
 widget-behavior/index
 interfaces/index
+panel-appicon/index
 :::
 
