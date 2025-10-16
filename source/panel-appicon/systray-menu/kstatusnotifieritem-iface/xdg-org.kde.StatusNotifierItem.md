@@ -6,8 +6,8 @@ Slug: org.kde.StatusNotifierItem
 ## Description
 
 Each application can register an arbitrary number of Status Notifier Items either:
-* by registering on the session bus the service `org.kde.StatusNotifierItem-PID-ID`, where PID is the process id of the application and ID is an arbitrary numeric unique identifier between different instances registered by the same application. The application must then register this service name with [`org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem`](xdg-org.kde.StatusNotifierWatcher#RegisterStatusNotifierItem). Sandboxed applications may not use this procedure.
-* (**recommended**) by registering an arbitrary path starting with `/` to [`org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem`](xdg-org.kde.StatusNotifierWatcher#RegisterStatusNotifierItem).
+* by registering on the session bus the service `org.kde.StatusNotifierItem-PID-ID`, where PID is the process id of the application and ID is an arbitrary numeric unique identifier between different instances registered by the same application. The application must then register this service name with [`org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem`](xdg-org.kde.StatusNotifierWatcher.md#RegisterStatusNotifierItem). Sandboxed applications may not use this procedure.
+* (**recommended**) by registering an arbitrary path starting with `/` to [`org.kde.StatusNotifierWatcher.RegisterStatusNotifierItem`](xdg-org.kde.StatusNotifierWatcher.md#RegisterStatusNotifierItem).
 
 Each instance of StatusNotifierItem must provide an object called `StatusNotifierItem` with the following properties, methods and signals described in the following sections. 
 
