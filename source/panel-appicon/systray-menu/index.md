@@ -2,6 +2,8 @@
 
 This allows you to have a button in the system tray that when activated (left- or right-clicked depending on the tray) will show a menu with actions that can be performed.
 
+The current de-facto standard is [KStatusNotifierItem](kstatusnotifieritem).
+
 :::{toctree}
 :maxdepth: 2
 :caption: Contents
