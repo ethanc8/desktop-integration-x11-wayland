@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Gtk.Settings" href="gtk-settings.html"><link rel="prev" title="Interfaces" href="index.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="Flatpak" href="flatpak.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>XDG Desktop Portal settings interface - Desktop integration on X11 and Wayland</title>
+        <title>DesktopIntegrationKit proposal - Desktop integration on X11 and Wayland</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -175,7 +175,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -206,9 +206,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Interfaces</a><input aria-label="Toggle navigation of Interfaces" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">XDG Desktop Portal settings interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gtk-settings.html">Gtk.Settings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../interfaces/index.html">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/xdg-settings.html">XDG Desktop Portal settings interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/gtk-settings.html">Gtk.Settings</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../panel-appicon/index.html">Panels and application icons</a><input aria-label="Toggle navigation of Panels and application icons" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -236,13 +236,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../uncategorized/index.html">Uncategorized notes</a><input aria-label="Toggle navigation of Uncategorized notes" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/HIG.html">HIG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/KDEColorScheme.html">KDE Color Scheme</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/ProgressBar.html">Progress Bar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/libadwaita.html">libadwaita themes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/flatpak.html">Flatpak</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncategorized/DesktopIntegrationKit-Proposal.html">DesktopIntegrationKit proposal</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Uncategorized notes</a><input aria-label="Toggle navigation of Uncategorized notes" checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HIG.html">HIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KDEColorScheme.html">KDE Color Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProgressBar.html">Progress Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libadwaita.html">libadwaita themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flatpak.html">Flatpak</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">DesktopIntegrationKit proposal</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +265,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/interfaces/xdg-settings.md.txt" title="View this page">
+  <a class="muted-link" href="../_sources/uncategorized/DesktopIntegrationKit-Proposal.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -278,27 +278,109 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section class="tex2jax_ignore mathjax_ignore" id="xdg-desktop-portal-settings-interface">
-<h1>XDG Desktop Portal settings interface<a class="headerlink" href="#xdg-desktop-portal-settings-interface" title="Link to this heading">¶</a></h1>
-<p>Settings portals <a class="reference external" href="https://invent.kde.org/plasma/xdg-desktop-portal-kde/-/issues/25">should fall back</a> to xdg-desktop-portal-gtk, which will proxy to GSettings.</p>
-<!-- 
-## List of settings
-
-Gtk-specific settings are taken from [`gtk/gdk/wayland/gdksettings-wayland.c`](https://github.com/GNOME/gtk/blob/4.20.2/gdk/wayland/gdksettings-wayland.c#L309).
-
-* [`org.gnome.desktop.interface gtk-theme`](https://docs.gtk.org/gtk4/property.Settings.gtk-theme-name.html)
-* [`org.gnome.desktop.interface icon-theme`](https://docs.gtk.org/gtk4/property.Settings.gtk-icon-theme-name.html)
-* [`org.gnome.desktop.interface cursor-theme`](https://docs.gtk.org/gtk4/property.Settings.gtk-cursor-theme-name.html)
-* [`org.gnome.desktop.interface cursor-size`](https://docs.gtk.org/gtk4/property.Settings.gtk-cursor-theme-size.html)
-* [`org.gnome.desktop.interface font-name`](https://docs.gtk.org/gtk4/property.Settings.gtk-font-name.html)
-* [`org.gnome.desktop.interface cursor-blink`](https://docs.gtk.org/gtk4/property.Settings.gtk-cursor-blink.html)
-* [`org.gnome.desktop.interface cursor-blink-time`](https://docs.gtk.org/gtk4/property.Settings.gtk-cursor-blink-time.html)
-* [`org.gnome.desktop.interface cursor-blink-timeout`](https://docs.gtk.org/gtk4/property.Settings.gtk-cursor-blink-timeout.html) -->
+          <section class="tex2jax_ignore mathjax_ignore" id="desktopintegrationkit-proposal">
+<h1>DesktopIntegrationKit proposal<a class="headerlink" href="#desktopintegrationkit-proposal" title="Link to this heading">¶</a></h1>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading">¶</a></h2>
+<section id="why-make-a-desktopintegrationkit">
+<h3>Why make a DesktopIntegrationKit?<a class="headerlink" href="#why-make-a-desktopintegrationkit" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Desktop integration is a difficult endeavor</p></li>
+<li><p>In order for GNUstep applications to be native we must integrate with desktops</p></li>
+<li><p>If we can deliver better desktop integration than Electron, Gtk, Qt, Flutter, etc. (which all have desktop integration flaws that are obvious to any end user), we can gain a significant advantage over them</p></li>
+</ul>
+</section>
+<section id="what-does-desktop-integration-mean">
+<h3>What does “desktop integration” mean?<a class="headerlink" href="#what-does-desktop-integration-mean" title="Link to this heading">¶</a></h3>
+<p>The article <a class="reference external" href="https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html">“Advice for the next dozen Rust GUIs”</a> brought up these points, but there may be others:</p>
+<ul class="simple">
+<li><p>What is the binary size for a simple application?</p></li>
+<li><p>What is the startup time for a simple application?</p></li>
+<li><p>Does text look like the platform native text?</p></li>
+<li><p>To what extent does the app support preferences set at the system level?</p></li>
+<li><p>What subset of expected text control functionality is provided?</p>
+<ul>
+<li><p>Complex text rendering including BiDi</p></li>
+<li><p>Support for keyboard layouts including “dead key” for alphabetic scripts</p></li>
+<li><p>Keyboard shortcuts according to platform human interface guidelines</p></li>
+<li><p>Input Method Editor</p></li>
+<li><p>Color emoji rendering and use of platform emoji picker</p></li>
+<li><p>Copy-paste (clipboard)</p></li>
+<li><p>Drag and drop</p></li>
+<li><p>Spelling and grammar correction</p></li>
+<li><p>Accessibility (including reading the text aloud)</p></li>
+</ul>
+</li>
+</ul>
+<p>As a list of things I think we should deal with:</p>
+<ul class="simple">
+<li><p>Getting the icon onto the taskbar/dock/homescreen</p></li>
+<li><p>User notifications</p></li>
+<li><p>Manage taskbar/dock/homescreen icon (context menu, progress bar, unread notification dots)</p></li>
+<li><p>Follow system color scheme (use dark or light mode, follow accent color, and possibly follow the entire color scheme)</p></li>
+<li><p>Dealing with the sandbox/packaging system (flatpak, snap, macOS sandbox, etc)</p></li>
+<li><p>Most of what’s included in the <a class="reference external" href="https://flatpak.github.io/xdg-desktop-portal/docs/api-reference.html">XDG desktop portals</a>:</p>
+<ul>
+<li><p>Getting the user account</p></li>
+<li><p>Requesting autostart</p></li>
+<li><p>Dealing with the sandbox to access cameras, clipboard, etc</p></li>
+<li><p>Using system file picker to access files including from outside the sandbox</p></li>
+<li><p>Making a global keyboard shortcut</p></li>
+<li><p>Inhibiting sleep, screen locking, etc</p></li>
+<li><p>Capturing input</p></li>
+<li><p>Finding the location of the device</p></li>
+<li><p>Printing from within the sandbox</p></li>
+<li><p>Starting screencasts and taking screenshots</p></li>
+</ul>
+</li>
+<li><p>Copy/paste and drag-and-drop between GNUstep and native apps</p>
+<ul>
+<li><p>We will want to handle copy-and-paste and drag-and-drop between GNUstep apps in the OpenStep style</p></li>
+</ul>
+</li>
+</ul>
+<p>I’m not sure whether the text support/input method support should go into DesktopIntegrationKit, gnustep-back, or gnustep-gui – probably needs to be in a mix of them all.</p>
+</section>
+<section id="why-not-do-this-in-gnustep-gui">
+<h3>Why not do this in GNUstep-GUI?<a class="headerlink" href="#why-not-do-this-in-gnustep-gui" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>On the same window system there may exist multiple different desktops that need to be dealt with separately</p>
+<ul>
+<li><p>So we can’t just deal with it using the gnustep-back backends</p></li>
+</ul>
+</li>
+<li><p>Many parts of desktop integration are independent of GUI toolkit</p>
+<ul>
+<li><p>DesktopIntegrationKit does not need to assume you’re using gnustep-gui</p></li>
+<li><p>This could help us get outside contributions, but our use of Objective-C might make that less likely</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="basic-design">
+<h2>Basic design<a class="headerlink" href="#basic-design" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>DesktopIntegrationKit itself provides a few things:</p>
+<ul>
+<li><p>APIs for apps to use directly</p>
+<ul>
+<li><p>DesktopIntegrationKit APIs</p></li>
+<li><p>UserNotifica</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="things-that-require-desktop-integration-but-are-also-in-themes-purview">
+<h3>Things that require desktop integration but are also in themes’ purview<a class="headerlink" href="#things-that-require-desktop-integration-but-are-also-in-themes-purview" title="Link to this heading">¶</a></h3>
+</section>
+</section>
 </section>
 
         </article>
@@ -306,23 +388,15 @@ Gtk-specific settings are taken from [`gtk/gdk/wayland/gdksettings-wayland.c`](h
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="gtk-settings.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Gtk.Settings</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="index.html">
+          
+          <a class="prev-page" href="flatpak.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Interfaces</div>
+                <div class="title">Flatpak</div>
                 
               </div>
             </a>
@@ -344,8 +418,36 @@ Gtk-specific settings are taken from [`gtk/gdk/wayland/gdksettings-wayland.c`](h
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">DesktopIntegrationKit proposal</a><ul>
+<li><a class="reference internal" href="#rationale">Rationale</a><ul>
+<li><a class="reference internal" href="#why-make-a-desktopintegrationkit">Why make a DesktopIntegrationKit?</a></li>
+<li><a class="reference internal" href="#what-does-desktop-integration-mean">What does “desktop integration” mean?</a></li>
+<li><a class="reference internal" href="#why-not-do-this-in-gnustep-gui">Why not do this in GNUstep-GUI?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-design">Basic design</a><ul>
+<li><a class="reference internal" href="#things-that-require-desktop-integration-but-are-also-in-themes-purview">Things that require desktop integration but are also in themes’ purview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
